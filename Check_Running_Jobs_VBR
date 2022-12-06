@@ -22,7 +22,7 @@ foreach($Job in $Jobs)
     }
     elseif (($LastSession.State -eq "Working") -and ($DiffTime.TotalHours -lt 24))
     {
-         $global:OutMessageTemp += "OK - The job '" + $Job.Name + "' ran successfully in " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
+         $global:OutMessageTemp += "OK - The job '" + $Job.Name + "' is in progess since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
          $global:OkCount++
     }
 }
@@ -41,7 +41,7 @@ $global:OutMessage=""
 $global:Exitcode=""
 $WarningPreference = 'SilentlyContinue'
  
-#exo - Ajout de variables pour compter le nombre d'erreurs
+#Ajout de variables pour compter le nombre d'erreurs
 $global:WarningDisabledCount=0
 $global:WarningCount=0
 $global:CriticalCount=0
