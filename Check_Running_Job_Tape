@@ -23,7 +23,7 @@ function CheckOneJob {
     }
     elseif (($lastState -eq "Working") -and ($DiffTime.TotalHours -lt 24))
     {
-         $global:OutMessageTemp += "OK - The job '" + $Jobs.Name + "' is actually running successfully in " + $DiffTime.Hours + " hours`r`n"
+         $global:OutMessageTemp += "OK - The job '" + $Jobs.Name + "' is in progress since " + $DiffTime.Hours + " hours`r`n"
          $global:OkCount++
     }
 }
