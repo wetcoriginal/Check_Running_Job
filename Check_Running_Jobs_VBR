@@ -68,7 +68,7 @@ $global:OutMessageTemp=""
 $global:OutMessage=""
 $global:Exitcode=""
 
-#exo - Ajout de variables pour compter le nombre d'erreurs
+#Ajout de variables pour compter le nombre d'erreurs
 $global:WarningDisabledCount=0
 $global:WarningCount=0
 $global:CriticalCount=0
@@ -114,7 +114,7 @@ else {
         CheckOneJob($Vjob.Name)
     }
 }
-#exo - Ajout du nombre total d'erreur dÃ©tectÃ©es
+#Ajout du nombre total d'erreur dÃ©tectÃ©es
 $TotalCount=$global:WarningDisabledCount + $global:WarningCount + $global:CriticalCount + $global:OkCount
 $global:OutMessage="TOTAL=>" + $TotalCount + " / OK=>" + $global:OkCount + " / CRITICAL=>" + $global:CriticalCount + " / DISABLE=>" + $global:WarningDisabledCount + " / WARNING=>" + $global:WarningCount
 $global:OutMessage+="`r`n" + $global:OutMessageTemp
