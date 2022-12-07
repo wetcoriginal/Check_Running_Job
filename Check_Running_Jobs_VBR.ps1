@@ -44,7 +44,7 @@ function CheckOneJob {
                         }
                         if (($JobCheck.IsReplica -eq $true) -and ($DiffTime.TotalHours -lt 24) -and ($JobCheck.IsRunning  -eq $true))
                         {
-                            $global:OutMessageTemp+="OK - The "+$JobCheck.Name+" is in progess since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
+                            $global:OutMessageTemp+="OK - The "+$JobCheck.Name+" is in progress since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
                             $global:OkCount++
                         }
                         else
