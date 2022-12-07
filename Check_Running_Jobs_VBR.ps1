@@ -30,7 +30,7 @@ function CheckOneJob {
 
                     if (($JobCheck.IsBackup -eq $true) -and ($DiffTime.TotalHours -lt 24) -and ($JobCheck.IsRunning  -eq $true))
                     {
-                        $global:OutMessageTemp+="OK - The job " + $Job.Name + " is in progess since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
+                        $global:OutMessageTemp+="OK - The job " + $Job.Name + " is in progress since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
                         $global:OkCount++
                     }
                     
