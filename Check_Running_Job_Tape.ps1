@@ -14,16 +14,16 @@ $DiffTime=$EstRun - $LastRun
 
 
 function CheckOneJob {
-    if(($lastState -eq "Working") -and ($DiffTime.TotalHours -gt 24))
+    if(($lastState -eq "Working") -and ($DiffTime.Hours -gt 24))
     {
         $global:CriticalCount++
-        $global:OutMessageTemp += "CRITICAL - The job '" + $Jobs.Name + "' has been running for more than 24 hours`r`n"
+        $global:OutMessageTemp += "CRITICAL - The job '" + $JobCheck.Name + "' has been running for more than 24 hours`r`n"
         $global:ExitCode=2
         if($global:ExitCode -ne 2) {$global:ExitCode = 1}
     }
-    elseif (($lastState -eq "Working") -and ($DiffTime.TotalHours -lt 24))
+    elseif (($lastState -eq "Working") -and ($DiffTime.Hours -lt 24))
     {
-         $global:OutMessageTemp += "OK - The job '" + $Jobs.Name + "' is in progress since " + $DiffTime.Hours + " hours`r`n"
+         $global:OutMessageTemp += "OK - The job '" + $JobCheck.Name + "' is in progress since " + $DiffTime.Hours + " hours`r`n"
          $global:OkCount++
     }
 }
