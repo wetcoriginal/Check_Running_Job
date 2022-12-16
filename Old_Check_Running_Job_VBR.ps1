@@ -15,16 +15,16 @@ foreach($Job in $Jobs)
     $LastRun = Get-VBRSession -Job $Job -Last | Select-Object -ExpandProperty CreationTime
     $DiffTime = new-timespan $LastRun $EstRun
     $LastSession = $Job.findlastsession()
-    if(($LastSession.State -eq "Working") -and ($DiffTime.TotalHours -gt 24))
+    if(($LastSession.State -eq "Working") -and ($DiffTime.Hours -gt 24))
     {
         $global:CriticalCount++
-        $global:OutMessageTemp += "CRITICAL - The job '" + $Job.Name + "' has been running for more than 24 hours`r`n"
+        $global:OutMessageTemp += "CRITICAL - The job '" + $JobCheck.Name + "' has been running for more than 24 hours`r`n"
         $global:ExitCode=2
         if($global:ExitCode -ne 2) {$global:ExitCode = 1}
     }
-    elseif (($LastSession.State -eq "Working") -and ($DiffTime.TotalHours -lt 24))
+    elseif (($LastSession.State -eq "Working") -and ($DiffTime.Hours -lt 24))
     {
-         $global:OutMessageTemp += "OK - The job '" + $Job.Name + "' is in progess since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
+         $global:OutMessageTemp += "OK - The job '" + $JobCheck.Name + "' is in progess since " + $DiffTime.Hours + " hours and " + $DiffTime.Minutes + " minutes `r`n"
          $global:OkCount++
     }
 }
